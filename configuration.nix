@@ -9,6 +9,9 @@
     ./hardware-configuration.nix
   ];
 
+  # latest Nix package Manager Version
+  nix.package = pkgs.nixVersions.unstable;
+
   # enable experimental features
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
