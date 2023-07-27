@@ -10,7 +10,7 @@
   ];
 
   # latest Nix package Manager Version
-  nix.package = pkgs.nixVersions.unstable;
+  nix.package = pkgs.nixUnstable;
 
   # enable experimental features
   nix.settings = {
