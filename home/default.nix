@@ -425,6 +425,12 @@
       };
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
+
   gtk = {
     enable = true;
     theme = {
@@ -433,6 +439,13 @@
         accents = [ "lavender" ];
         size = "standard";
         variant = "mocha";
+      };
+      cursorTheme = {
+        name = "Catppuccino Mocha Lavender";
+        package = pkgs.catppuccin-cursors.override {
+          size = "standard";
+          variant = "mocha";
+        };
       };
     };
   };
