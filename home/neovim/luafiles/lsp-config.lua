@@ -1,3 +1,5 @@
+-- luacheck: globals vim
+
 local lspconfig = require("lspconfig")
 local typescript = require("typescript")
 
