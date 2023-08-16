@@ -30,7 +30,6 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
-    nvidiaPatches = false;
   };
 
   # environment variables
@@ -151,7 +150,7 @@
   programs.gamemode.enable = true;
 
   # flatpak support
-  #services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   # Fonts
   fonts.packages = with pkgs;
