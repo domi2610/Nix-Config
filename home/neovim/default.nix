@@ -140,7 +140,7 @@ in {
       }
       # LSP Setup
       {
-        plugin = lspsaga-nvim-original;
+        plugin = lspsaga-nvim;
         type = "lua";
         config = ''
           require('lspsaga').setup({

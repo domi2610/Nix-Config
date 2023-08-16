@@ -151,7 +151,7 @@
   programs.gamemode.enable = true;
 
   # flatpak support
-  services.flatpak.enable = true;
+  #services.flatpak.enable = true;
 
   # Fonts
   fonts.packages = with pkgs;
