@@ -86,10 +86,6 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.lightdm.greeter.enable = false;
 
-  # Exclude some Gnome Apps
-  #  environment.gnome.excludePackages =
-  #    (with pkgs; [ gnome.geary gnome.totem epiphany ]);
-
   # Configure keymap in X11
   services.xserver = {
     layout = "de";
@@ -120,7 +116,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    #jack.enable = true;
+    jack.enable = true;
   };
 
   # enable zsh for user
