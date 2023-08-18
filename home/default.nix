@@ -7,7 +7,6 @@
   home.username = "domenic";
   home.homeDirectory = "/home/domenic";
   home.packages = with pkgs; [
-    ungoogled-chromium
     shellcheck
     grim
     slurp
