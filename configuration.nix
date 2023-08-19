@@ -108,7 +108,7 @@
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  sound.enable = false;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -127,7 +127,7 @@
     isNormalUser = true;
     shell = pkgs.bash;
     description = "Domenic Dewald";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
   };
 
   # Allow unfree packages
