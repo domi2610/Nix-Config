@@ -7,7 +7,6 @@
   home.username = "domenic";
   home.homeDirectory = "/home/domenic";
   home.packages = with pkgs; [
-    shellcheck
     grim
     slurp
     lazygit
@@ -20,9 +19,7 @@
     wget
     sshfs
     nil
-    lua-language-server
     nixfmt
-    luajitPackages.luacheck
     stylua
     nomacs
     pamixer
