@@ -28,7 +28,6 @@
     pavucontrol
     swww
     ripgrep
-    firefox
     heroic
     obsidian
     bat
