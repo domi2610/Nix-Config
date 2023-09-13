@@ -14,6 +14,7 @@
       webserver-mount = "sshfs ubuntu@144.24.186.232:/home/ubuntu ~/mnt";
       nix-update = "nix flake update ~/NixOS-Config/";
       nix-clean = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
+      nix-lock-upload = "git add . && git commit -m 'nix: update' && git push";
     };
   };
 }
