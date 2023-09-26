@@ -156,4 +156,6 @@
   virtualisation.docker.enable = true;
   system.stateVersion = "23.11"; # Did you read the comment?
 
+  security.pam.services.swaylock = { };
+
 }
