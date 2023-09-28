@@ -126,7 +126,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.domenic = {
     isNormalUser = true;
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     description = "Domenic Dewald";
     extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
   };
