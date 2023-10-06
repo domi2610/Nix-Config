@@ -27,7 +27,7 @@
     protonup-qt
     ani-cli
     htop
-    keepassxc
+    gnome-secrets
     mpv
     spotify
     libreoffice
