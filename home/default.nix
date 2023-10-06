@@ -35,7 +35,7 @@
     rar
     unzip
     helvum
-    webcord
+    discord
   ];
 
   programs.obs-studio.enable = true;
