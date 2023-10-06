@@ -75,9 +75,6 @@
   # enable thermald
   services.thermald.enable = true;
 
-  # enable tlp
-  services.tlp.enable = true;
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
