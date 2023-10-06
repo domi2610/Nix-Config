@@ -14,9 +14,10 @@
 
   # enable experimental features
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys =
-      [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    # hyprland cache
+    # substituters = [ "https://hyprland.cachix.org" ];
+    # trusted-public-keys =
+    #  [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
   };
@@ -27,11 +28,11 @@
   '';
 
   # hyprland configuration
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland.enable = true;
-  };
+  #programs.hyprland = {
+  #  enable = true;
+  #  package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #  xwayland.enable = true;
+  #};
 
   # environment variables
   environment.sessionVariables = {
@@ -84,8 +85,13 @@
   services.dbus.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.lightdm.greeter.enable = false;
+
+  # for Hyprland
+  #services.xserver.displayManager.sddm.enable = true;
+  #services.xserver.displayManager.lightdm.greeter.enable = false;
+
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
