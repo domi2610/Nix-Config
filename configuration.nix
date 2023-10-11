@@ -95,7 +95,7 @@
   # enable locate
   services.locate = {
     enable = true;
-    locate = pkgs.mlocate;
+    package = pkgs.mlocate;
     localuser = null;
     interval = "hourly";
   };
