@@ -23,7 +23,6 @@
     whatsapp-for-linux
     teamspeak_client
     teams-for-linux
-    thunderbird
     protonup-qt
     ani-cli
     htop
