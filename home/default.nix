@@ -15,7 +15,6 @@
     sshfs
     nil
     nixfmt
-    stylua
     ripgrep
     heroic
     obsidian

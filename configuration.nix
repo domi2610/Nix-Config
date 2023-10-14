@@ -132,7 +132,7 @@
 
   programs.noisetorch.enable = true;
 
-  # Virutalization with virt-manager
+  # Virtualization with virt-manager
   programs.dconf.enable = true;
 
   # Gamemode
