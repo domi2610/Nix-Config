@@ -119,7 +119,7 @@
   users.users.domenic = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Domenic Dewald";
+    description = "Domenic";
     extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
   };
 
