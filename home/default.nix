@@ -36,6 +36,14 @@
     discord
   ];
 
+  home.file = {
+    ".config/nixpkgs/config.nix".text = ''
+      {
+          allowUnfree = true;
+      }
+    '';
+  };
+
   programs.obs-studio.enable = true;
 
   programs.bash.enable = true;
