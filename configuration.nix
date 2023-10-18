@@ -9,13 +9,17 @@
     ./hardware-configuration.nix
   ];
 
-  # latest Nix package Manager Version
-  nix.package = pkgs.nixUnstable;
-
   # enable experimental features
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
+  nix = let nix-users = [ "root" "domenic" ];
+  in {
+    # latest Nix package Manager Version
+    package = pkgs.nixUnstable;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+      trusted-users = nix-users;
+      allowed-users = nix-users;
+    };
   };
 
   # systmed stop job timer
