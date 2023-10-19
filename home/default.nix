@@ -24,7 +24,7 @@
     teams-for-linux
     protonup-qt
     ani-cli
-    htop
+    btop
     gnome-secrets
     mpv
     spotify
