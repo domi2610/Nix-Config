@@ -12,7 +12,7 @@
         "systemctl --user restart pipewire.service && systemctl --user restart wireplumber";
       webserver-ssh = "ssh ubuntu@144.24.186.232";
       webserver-mount = "sshfs ubuntu@144.24.186.232:/home/ubuntu ~/mnt";
-      nix-update = "nix flake update ~/NixOS-Config/";
+      nix-update = "nix flake update ~/Projects/Nix-Config/";
       nix-clean = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
       nix-lock-upload = "git add . && git commit -m 'nix: update' && git push";
     };
