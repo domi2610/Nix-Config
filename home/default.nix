@@ -48,5 +48,12 @@
 
   programs.bash.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   home.stateVersion = "23.11";
 }
