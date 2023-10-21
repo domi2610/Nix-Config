@@ -142,7 +142,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.no-activities-button
   ];
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
