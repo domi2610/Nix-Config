@@ -138,7 +138,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.caffeine
+    gnomeExtensons.blur-my-shell
+    gnomeExtensions.no-activities-button
+  ];
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   programs.noisetorch.enable = true;
 
