@@ -141,7 +141,7 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
-    gnomeExtensons.blur-my-shell
+    gnomeExtensions.blur-my-shell
     gnomeExtensions.no-activities-button
   ];
 
