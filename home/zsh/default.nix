@@ -16,6 +16,8 @@
       nix-clean = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
       nix-lock-upload = "git add . && git commit -m 'nix: update' && git push";
       setup-direnv = "echo 'use flake' >> .envrc && direnv allow";
+      rebuild-system =
+        "sudo nixos-rebuild switch --flake github:domi2610/Nix-Config#nixos";
     };
   };
 }
