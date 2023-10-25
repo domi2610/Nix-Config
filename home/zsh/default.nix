@@ -15,6 +15,7 @@
       nix-update = "nix flake update ~/Projects/NixOS-Config/";
       nix-clean = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
       nix-lock-upload = "git add . && git commit -m 'nix: update' && git push";
+      setup-direnv = "echo 'use flake' >> .envrc && direnv allow";
     };
   };
 }
