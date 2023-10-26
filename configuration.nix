@@ -135,6 +135,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "electron-24.8.6" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
