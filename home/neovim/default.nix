@@ -170,6 +170,7 @@ in {
       vim-tmux-navigator
       vim-tmux-clipboard
       lazygit-nvim
+      fidget-nvim
     ];
   };
 }
