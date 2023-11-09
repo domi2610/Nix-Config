@@ -30,7 +30,7 @@ in {
                               gitsigns = true,
                               nvimtree = false,
                               telescope = true,
-                              fidget = false,
+                              fidget = true,
                               treesitter = true,
                               illuminate = true,
                               lsp_saga = true,
@@ -170,7 +170,13 @@ in {
       vim-tmux-navigator
       vim-tmux-clipboard
       lazygit-nvim
-      fidget-nvim
+      {
+        plugin = fidget-nvim;
+        type = "lua";
+        config = ''
+          require('fidget').setup()
+        '';
+      }
     ];
   };
 }
