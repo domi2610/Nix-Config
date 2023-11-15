@@ -101,7 +101,7 @@ in {
       }
       {
         plugin = nvim-ts-autotag;
-        typer = "lua";
+        type = "lua";
         config = ''
           require('nvim-ts-autotag').setup()
         '';
