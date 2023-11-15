@@ -97,7 +97,14 @@ in {
       {
         plugin = nvim-autopairs;
         type = "lua";
-        config = "require('nvim-autopairs').setup()";
+        config = "require('nvim-autopairs').setup {}";
+      }
+      {
+        plugin = nvim-ts-autotag;
+        typer = "lua";
+        config = ''
+          require('nvim-ts-autotag').setup()
+        '';
       }
       nvim-surround
       vim-illuminate
