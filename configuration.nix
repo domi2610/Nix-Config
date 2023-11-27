@@ -160,7 +160,7 @@
     [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
 
   virtualisation.docker.enable = true;
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 
   # enable Steam
   programs.steam = {
