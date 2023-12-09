@@ -162,10 +162,4 @@
   virtualisation.docker.enable = true;
   system.stateVersion = "24.05";
 
-  # enable Steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 }
