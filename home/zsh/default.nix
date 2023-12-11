@@ -10,7 +10,7 @@
       lla = "ls -lA --color=auto";
       webserver-ssh = "ssh ubuntu@144.24.186.232";
       webserver-mount = "sshfs ubuntu@144.24.186.232:/home/ubuntu ~/mnt";
-      nix-update = "nix flake update ~/Projects/NixOS-Config/";
+      nix-update = "nix flake update --flake ~/Projects/NixOS-Config/";
       nix-clean = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
       setup-direnv = "echo 'use flake' >> .envrc && direnv allow";
       rebuild-system =
