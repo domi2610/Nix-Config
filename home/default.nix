@@ -35,6 +35,7 @@
     unzip
     helvum
     discord
+    webcord
     gnome.gnome-disk-utility
   ];
 
