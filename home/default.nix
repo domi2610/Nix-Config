@@ -7,6 +7,7 @@
   home.username = "domenic";
   home.homeDirectory = "/home/domenic";
   home.packages = with pkgs; [
+    mangohud
     firefox
     lazygit
     bottles
