@@ -35,6 +35,7 @@
     unzip
     helvum
     discord
+    gnome.gnome-disk-utility
   ];
 
   home.file = {
