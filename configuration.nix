@@ -80,8 +80,11 @@
   #services.xserver.displayManager.sddm.enable = true;
   #services.xserver.displayManager.lightdm.greeter.enable = false;
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # use hyprland window manager
+  programs.hyprland.enable = true;
 
   # exclude some gnome packages
   environment.gnome.excludePackages = with pkgs.gnome; [
