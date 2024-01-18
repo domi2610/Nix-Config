@@ -2,7 +2,7 @@
 
 {
 
-  imports = [ ./neovim ./starship ./tmux ./kitty ./zsh ./git ./hyprland ];
+  imports = [ ./neovim ./starship ./tmux ./kitty ./zsh ./git ];
 
   home.username = "domenic";
   home.homeDirectory = "/home/domenic";
