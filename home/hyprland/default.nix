@@ -446,8 +446,6 @@
 
   programs.wofi.enable = true;
 
-  services.tlp.enable = true;
-
   home.file = {
     # hyprland stuff
     ".config/hypr/hyprland.conf".source = ./configfiles/hypr/hyprland.conf;
