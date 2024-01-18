@@ -65,9 +65,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # enable thermald
-  services.thermald.enable = true;
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -85,12 +82,6 @@
 
   # use hyprland window manager
   programs.hyprland.enable = true;
-
-  # exclude some gnome packages
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    epiphany
-    gnome-software
-  ];
 
   # Configure keymap in X11
   services.xserver = {
@@ -138,17 +129,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  # nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.appindicator
-    gnomeExtensions.caffeine
-    gnomeExtensions.blur-my-shell
-  ];
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   programs.noisetorch.enable = true;
 
@@ -168,6 +152,12 @@
       true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall =
       true; # Open ports in the firewall for Source Dedicated Server
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlt.enable = false;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   virtualisation.docker.enable = true;
