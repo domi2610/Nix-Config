@@ -34,8 +34,7 @@
     rar
     unzip
     helvum
-    webcord
-    gnome.gnome-disk-utility
+    discord
   ];
 
   home.file = {
