@@ -147,11 +147,7 @@
       true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-  };
+  xdg.portal.enable = true;
 
   virtualisation.docker.enable = true;
   system.stateVersion = "24.05";
