@@ -34,7 +34,7 @@
     rar
     unzip
     helvum
-    webcord
+    discord
   ];
 
   home.file = {
