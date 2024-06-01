@@ -15,7 +15,7 @@
     wget
     sshfs
     nil
-    nixfmt
+    nixfmt-rfc-style
     ripgrep
     heroic
     obsidian
