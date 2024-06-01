@@ -13,7 +13,7 @@
   nix = let nix-users = [ "root" "domenic" ];
   in {
     # latest Nix package Manager Version
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
