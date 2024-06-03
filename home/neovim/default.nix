@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 let
-  concatFiles = files:
-    pkgs.lib.strings.concatMapStringsSep "\n" builtins.readFile files;
-in {
+  concatFiles = files: pkgs.lib.strings.concatMapStringsSep "\n" builtins.readFile files;
+in
+{
 
   programs.neovim = {
     enable = true;
@@ -12,11 +12,13 @@ in {
     vimAlias = true;
     vimdiffAlias = true;
     withNodeJs = true;
-    extraLuaConfig = (concatFiles [
-      ./luafiles/set.lua
-      ./luafiles/remap.lua
-      ./luafiles/copilot.lua
-    ]);
+    extraLuaConfig = (
+      concatFiles [
+        ./luafiles/set.lua
+        ./luafiles/remap.lua
+        ./luafiles/copilot.lua
+      ]
+    );
     plugins = with pkgs.vimPlugins; [
       telescope-nvim
       telescope-fzf-native-nvim
@@ -40,27 +42,30 @@ in {
           	      '';
       }
       {
-        plugin = (nvim-treesitter.withPlugins (plugins:
-          with plugins; [
-            tree-sitter-bash
-            tree-sitter-c
-            tree-sitter-cpp
-            tree-sitter-go
-            tree-sitter-python
-            tree-sitter-latex
-            tree-sitter-lua
-            tree-sitter-rust
-            tree-sitter-scss
-            tree-sitter-typescript
-            tree-sitter-html
-            tree-sitter-css
-            tree-sitter-javascript
-            tree-sitter-yaml
-            tree-sitter-toml
-            tree-sitter-markdown
-            tree-sitter-markdown-inline
-            tree-sitter-nix
-          ]));
+        plugin = (
+          nvim-treesitter.withPlugins (
+            plugins: with plugins; [
+              tree-sitter-bash
+              tree-sitter-c
+              tree-sitter-cpp
+              tree-sitter-go
+              tree-sitter-python
+              tree-sitter-latex
+              tree-sitter-lua
+              tree-sitter-rust
+              tree-sitter-scss
+              tree-sitter-typescript
+              tree-sitter-html
+              tree-sitter-css
+              tree-sitter-javascript
+              tree-sitter-yaml
+              tree-sitter-toml
+              tree-sitter-markdown
+              tree-sitter-markdown-inline
+              tree-sitter-nix
+            ]
+          )
+        );
         type = "lua";
         config = ''
           require('nvim-treesitter.configs').setup {
@@ -77,8 +82,7 @@ in {
       {
         plugin = nvim-tree-lua;
         type = "lua";
-        config =
-          "  vim.g.loaded_netrw = 1\n  vim.g.loaded_netrwPlugin = 1\n  vim.opt.termguicolors = true\n  require(\"nvim-tree\").setup()\n";
+        config = "  vim.g.loaded_netrw = 1\n  vim.g.loaded_netrwPlugin = 1\n  vim.opt.termguicolors = true\n  require(\"nvim-tree\").setup()\n";
       }
       nvim-web-devicons
       {

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   home.packages = with pkgs; [
     wlogout
@@ -452,10 +453,8 @@
     ".config/hypr/mocha.conf".source = ./configfiles/hypr/mocha.conf;
 
     # hyprland scripts
-    ".config/hypr/scripts/volume.sh".source =
-      ./configfiles/hypr/scripts/volume.sh;
-    ".config/hypr/scripts/brightness.sh".source =
-      ./configfiles/hypr/scripts/brightness.sh;
+    ".config/hypr/scripts/volume.sh".source = ./configfiles/hypr/scripts/volume.sh;
+    ".config/hypr/scripts/brightness.sh".source = ./configfiles/hypr/scripts/brightness.sh;
     ".config/hypr/scripts/swww.sh".source = ./configfiles/hypr/scripts/swww.sh;
 
     # waybar config
@@ -464,6 +463,5 @@
     # wofi
     ".config/wofi/config".source = ./configfiles/wofi/config;
     ".config/wofi/style.css".source = ./configfiles/wofi/style.css;
-
   };
 }

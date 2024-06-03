@@ -5,22 +5,32 @@
 { pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
   # enable experimental features
-  nix = let nix-users = [ "root" "domenic" ];
-  in {
-    # latest Nix package Manager Version
-    package = pkgs.nixVersions.latest;
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
-      trusted-users = nix-users;
-      allowed-users = nix-users;
+  nix =
+    let
+      nix-users = [
+        "root"
+        "domenic"
+      ];
+    in
+    {
+      # latest Nix package Manager Version
+      package = pkgs.nixVersions.latest;
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        auto-optimise-store = true;
+        trusted-users = nix-users;
+        allowed-users = nix-users;
+      };
     };
-  };
 
   # systmed stop job timer
   systemd.extraConfig = ''
@@ -117,7 +127,12 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Domenic";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "audio"
+    ];
   };
 
   # Allow unfree packages
@@ -136,20 +151,23 @@
   programs.gamemode.enable = true;
 
   # Fonts
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "JetBrainsMono"
+      ];
+    })
+  ];
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   xdg.portal.enable = true;
 
   virtualisation.docker.enable = true;
   system.stateVersion = "24.05";
-
 }

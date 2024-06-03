@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   programs.tmux = {
     enable = true;
@@ -32,6 +33,9 @@
       set-option -g focus-event on
       set-option -sa terminal-features ",xterm-kitty:RGB"
     '';
-    plugins = with pkgs.tmuxPlugins; [ vim-tmux-navigator catppuccin ];
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+      catppuccin
+    ];
   };
 }
