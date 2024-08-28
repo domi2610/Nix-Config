@@ -17,7 +17,7 @@
       url_style = "dotted";
       confirm_os_window_close = 0;
       background_opacity = "0.95";
-      linux_display_server = "x11";
+      linux_display_server = "wayland";
       enable_audio_bell = "no";
     };
     theme = "Catppuccin-Mocha";
