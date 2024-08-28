@@ -3,6 +3,7 @@
 {
 
   imports = [
+    ./hyprland
     ./neovim
     ./starship
     ./tmux
