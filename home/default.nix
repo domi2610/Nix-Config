@@ -30,7 +30,6 @@
     bat
     whatsapp-for-linux
     teamspeak_client
-    teams-for-linux
     protonup-qt
     ani-cli
     btop
