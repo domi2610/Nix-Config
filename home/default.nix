@@ -33,8 +33,8 @@
     protonup-qt
     ani-cli
     btop
-    gnome-secrets
     mpv
+    keepassxc
     spotify
     libreoffice
     zip
