@@ -86,6 +86,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = false;
 
+  # flatpaks
+  services.flatpak.enable = true;
+
   # or enable Hyprland
   programs.hyprland.enable = true;
 
