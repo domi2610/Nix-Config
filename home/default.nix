@@ -41,6 +41,7 @@
     unzip
     helvum
     discord
+    gimp
   ];
 
   home.file = {
