@@ -37,6 +37,10 @@
     ];
   };
 
+  # enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   swapDevices = [ { device = "/dev/disk/by-uuid/47d7a128-9adf-4010-b534-b40ce7fc69cf"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
