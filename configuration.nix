@@ -90,7 +90,7 @@
   services.flatpak.enable = true;
 
   # or enable Hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
