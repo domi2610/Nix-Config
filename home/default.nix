@@ -42,6 +42,7 @@
     helvum
     discord
     gimp
+    rawtherapee
   ];
 
   home.file = {
