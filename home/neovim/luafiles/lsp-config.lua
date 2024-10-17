@@ -23,7 +23,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)
 	keymap.set("n", "<leader><CR>", "<cmd> Lspsaga term_toggle<CR>", opts)
 
-	if client.name == "tsserver" then
+	if client.name == "ts_ls" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>")
 	end
 end
