@@ -20,6 +20,6 @@
       linux_display_server = "x11";
       enable_audio_bell = "no";
     };
-    theme = "Catppuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
   };
 }
