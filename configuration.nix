@@ -15,7 +15,7 @@
     let
       nix-users = [
         "root"
-        "domenic"
+        "Saya"
       ];
     in
     {
