@@ -11,8 +11,8 @@
     ./git
   ];
 
-  home.username = "domenic";
-  home.homeDirectory = "/home/domenic";
+  home.username = "Saya";
+  home.homeDirectory = "/home/Saya";
   home.packages = with pkgs; [
     mangohud
     firefox
