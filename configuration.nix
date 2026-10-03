@@ -32,7 +32,6 @@
       };
     };
 
-
   # environment variables
   environment.sessionVariables = {
     XDG_CACHE_HOME = "$HOME/.cache";
@@ -133,8 +132,8 @@
       "audio"
     ];
     packages = with pkgs; [
-    	vim
-	git
+      vim
+      git
     ];
   };
 
@@ -157,7 +156,6 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
-
 
   programs.steam = {
     enable = true;
