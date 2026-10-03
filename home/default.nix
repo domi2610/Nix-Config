@@ -14,6 +14,7 @@
   home.username = "saya";
   home.homeDirectory = "/home/saya";
   home.packages = with pkgs; [
+    claude-code
     mangohud
     firefox
     lazygit
