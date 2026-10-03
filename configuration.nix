@@ -134,8 +134,7 @@
       "input"
     ];
     packages = with pkgs; [
-      vim
-      git
+      xivlauncher
     ];
   };
 
