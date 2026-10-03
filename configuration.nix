@@ -169,8 +169,6 @@
   hardware.steam-hardware.enable = true;
   hardware.uinput.enable = true;
 
-  hardware.xone.enable = true; # Xbox wireless dongle
-  # or
   hardware.xpadneo.enable = true; # Bluetooth
 
   system.stateVersion = "26.05";
