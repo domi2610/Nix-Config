@@ -6,13 +6,15 @@ in
 {
 
   programs.neovim = {
+    withRuby = false;
+    withPython3 = true;
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
     withNodeJs = true;
-    extraLuaConfig = (
+    initLua = (
       concatFiles [
         ./luafiles/set.lua
         ./luafiles/remap.lua
@@ -68,7 +70,7 @@ in
         );
         type = "lua";
         config = ''
-          require('nvim-treesitter.configs').setup {
+          require('nvim-treesitter').setup {
               highlight = {
                   enable = true,
                   additional_vim_regex_highlighting = false,
@@ -183,15 +185,14 @@ in
           })
         '';
       }
-      typescript-nvim
-      rust-tools-nvim
+      rustaceanvim
       {
         plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile (./luafiles/lsp-config.lua);
       }
       {
-        plugin = null-ls-nvim;
+        plugin = none-ls-nvim;
         type = "lua";
         config = builtins.readFile (./luafiles/null-ls.lua);
       }

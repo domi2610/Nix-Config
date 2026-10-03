@@ -2,7 +2,9 @@
 {
   programs.git = {
     enable = true;
-    userEmail = "domenic2610@gmail.com";
-    userName = "Domenic Dewald";
+    settings.user = {
+        email = "domenic2610@gmail.com";
+        aame = "Domenic Dewald";
+    };
   };
 }

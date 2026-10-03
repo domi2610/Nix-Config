@@ -19,14 +19,14 @@
             ./configuration.nix
             {
               environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
-              nix.nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
+              nix.settings.nix-path = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
               nix.registry.nixpkgs.flake = nixpkgs;
             }
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.domenic = import ./home;
+              home-manager.users.saya = import ./home;
             }
           ];
         };

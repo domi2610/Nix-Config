@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
     let
       nix-users = [
         "root"
-        "Saya"
+        "saya"
       ];
     in
     {
@@ -32,10 +32,6 @@
       };
     };
 
-  # systmed stop job timer
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
 
   # environment variables
   environment.sessionVariables = {
@@ -48,7 +44,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   # latest Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -83,11 +78,11 @@
 
   # Enable the GNOME Desktop Environment.
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # flatpaks
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # or enable Hyprland
   programs.hyprland.enable = false;
@@ -109,12 +104,11 @@
   services.locate = {
     enable = true;
     package = pkgs.mlocate;
-    localuser = null;
     interval = "hourly";
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -128,15 +122,19 @@
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.domenic = {
+  users.users.saya = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Domenic";
+    description = "Saya Isumo";
     extraGroups = [
       "networkmanager"
       "wheel"
       "docker"
       "audio"
+    ];
+    packages = with pkgs; [
+    	vim
+	git
     ];
   };
 
@@ -157,13 +155,9 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-      ];
-    })
+    nerd-fonts.fira-code
   ];
+
 
   programs.steam = {
     enable = true;
@@ -173,6 +167,5 @@
 
   xdg.portal.enable = true;
 
-  virtualisation.docker.enable = true;
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 }

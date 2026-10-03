@@ -11,8 +11,8 @@
     ./git
   ];
 
-  home.username = "Saya";
-  home.homeDirectory = "/home/Saya";
+  home.username = "saya";
+  home.homeDirectory = "/home/saya";
   home.packages = with pkgs; [
     mangohud
     firefox
@@ -22,13 +22,12 @@
     wget
     sshfs
     nil
-    nixfmt-rfc-style
+    nixfmt
     ripgrep
     heroic
     obsidian
     bat
-    whatsapp-for-linux
-    teamspeak_client
+    karere
     protonup-qt
     ani-cli
     btop
@@ -36,6 +35,7 @@
     gnome-secrets
     spotify
     libreoffice
+    hyfetch
     zip
     rar
     unzip
@@ -62,5 +62,5 @@
     nix-direnv.enable = true;
   };
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
 }

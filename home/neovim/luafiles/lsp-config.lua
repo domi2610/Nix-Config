@@ -1,7 +1,6 @@
 -- luacheck: globals vim
 
 local lspconfig = require("lspconfig")
-local typescript = require("typescript")
 
 local keymap = vim.keymap
 
@@ -65,12 +64,6 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-typescript.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
-})
 
 lspconfig.cssls.setup({
 	capabilities = capabilities,
@@ -111,17 +104,3 @@ lspconfig.tailwindcss.setup({
 	on_attach = on_attach,
 })
 
-local rt = require("rust-tools")
-rt.setup({
-
-	server = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-
-		tools = {
-			hover_actions = {
-				auto_focus = true,
-			},
-		},
-	},
-})
