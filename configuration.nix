@@ -134,12 +134,12 @@
       "input"
     ];
     packages = with pkgs; [
+      xivlauncher
     ];
   };
 
   environment.systemPackages = with pkgs; [
     steam-run
-    xivlauncher
   ];
 
   # Allow unfree packages
