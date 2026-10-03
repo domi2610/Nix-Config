@@ -158,6 +158,13 @@
     nerd-fonts.fira-code
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      steam = prev.steam.override {
+        extraLibraries = pkgs: [ pkgs.SDL2 ];
+      };
+    })
+  ];
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
