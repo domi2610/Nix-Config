@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -130,6 +130,8 @@
       "wheel"
       "docker"
       "audio"
+      "uinput"
+      "input"
     ];
     packages = with pkgs; [
       vim
@@ -164,6 +166,9 @@
   };
 
   xdg.portal.enable = true;
+
+  hardware.steam-hardware.enable = true;
+  hardware.uinput.enable = true;
 
   system.stateVersion = "26.05";
 }
