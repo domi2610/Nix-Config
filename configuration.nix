@@ -138,6 +138,10 @@
     ];
   };
 
+  environment.systemPackages = with pkgs; [
+    steam-run
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "electron-29.4.6" ];
