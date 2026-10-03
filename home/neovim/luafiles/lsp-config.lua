@@ -1,47 +1,33 @@
 -- luacheck: globals vim
 
-local lspconfig = require("lspconfig")
-
 local keymap = vim.keymap
 
-local on_attach = function(client, bufnr)
-	local opts = { noremap = true, silent = true, buffer = bufnr }
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspKeymaps", {}),
+	callback = function(args)
+		local opts = { noremap = true, silent = true, buffer = args.buf }
 
-	-- set keybindings
-	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-	keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.definition()<Cr>", opts)
-	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts)
-	keymap.set("n", "<leader><CR>", "<cmd> Lspsaga term_toggle<CR>", opts)
-
-	if client.name == "ts_ls" then
-		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>")
-	end
-end
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-lspconfig.clangd.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+		-- set keybindings
+		keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
+		keymap.set("n", "gD", vim.lsp.buf.definition, opts)
+		keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+		keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+		keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+		keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+		keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+		keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+		keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+		keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
+		keymap.set("n", "<leader><CR>", "<cmd>Lspsaga term_toggle<CR>", opts)
+	end,
 })
 
-lspconfig.pyright.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+vim.lsp.config("*", {
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
-lspconfig.lua_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			runtime = {
@@ -54,7 +40,7 @@ lspconfig.lua_ls.setup({
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = { vim.env.VIMRUNTIME },
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
@@ -64,20 +50,7 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-
-lspconfig.cssls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.html.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.gopls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+vim.lsp.config("gopls", {
 	settings = {
 		gopls = {
 			completeUnimported = true,
@@ -89,18 +62,16 @@ lspconfig.gopls.setup({
 	},
 })
 
-lspconfig.nil_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+-- rust-analyzer is handled by rustaceanvim
+vim.lsp.enable({
+	"clangd",
+	"pyright",
+	"lua_ls",
+	"ts_ls",
+	"cssls",
+	"html",
+	"gopls",
+	"nil_ls",
+	"metals",
+	"tailwindcss",
 })
-
-lspconfig.metals.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.tailwindcss.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-

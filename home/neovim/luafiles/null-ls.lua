@@ -11,20 +11,19 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.black,
 		formatting.stylua,
-		formatting.rustfmt,
 		formatting.shfmt,
 		formatting.gofumpt,
 		formatting.nixfmt,
 
-		diagnostics.eslint_d,
-		diagnostics.shellcheck,
+		-- moved out of none-ls core into none-ls-extras
+		require("none-ls.diagnostics.eslint_d"),
+		require("none-ls.diagnostics.ruff"),
+
 		diagnostics.golangci_lint,
 		diagnostics.pylint,
-		diagnostics.ruff,
-		diagnostics.luacheck,
 	},
 	on_attach = function(current_client, bufnr)
-		if current_client.supports_method("textDocument/formatting") then
+		if current_client:supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = augroup,
@@ -39,5 +38,14 @@ null_ls.setup({
 				end,
 			})
 		end
+	end,
+})
+
+-- rustfmt was removed from none-ls; format Rust through rust-analyzer instead
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = augroup,
+	pattern = "*.rs",
+	callback = function(args)
+		vim.lsp.buf.format({ name = "rust-analyzer", bufnr = args.buf })
 	end,
 })

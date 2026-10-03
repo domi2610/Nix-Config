@@ -32,7 +32,7 @@ in
                           integrations = {
                               cmp = true,
                               gitsigns = true,
-                              nvimtree = false,
+                              nvimtree = true,
                               telescope = true,
                               fidget = true,
                               treesitter = true,
@@ -70,12 +70,14 @@ in
         );
         type = "lua";
         config = ''
-          require('nvim-treesitter').setup {
-              highlight = {
-                  enable = true,
-                  additional_vim_regex_highlighting = false,
-              },
-          }
+          -- nvim-treesitter's main branch no longer has a `highlight` module;
+          -- highlighting is started per buffer through the built-in API.
+          vim.api.nvim_create_autocmd('FileType', {
+              group = vim.api.nvim_create_augroup('TreesitterHighlight', {}),
+              callback = function(args)
+                  pcall(vim.treesitter.start, args.buf)
+              end,
+          })
         '';
       }
       {
@@ -94,7 +96,6 @@ in
           	          },
                         extensions = {
                             'nvim-tree',
-                            'symbols-outline',
                         },
           	        }
           	      '';
@@ -109,8 +110,7 @@ in
         plugin = nvim-ts-autotag;
         type = "lua";
         config = ''
-                    require('nvim-ts-autotag').setup({
-                        require('nvim-ts-autotag').setup({
+          require('nvim-ts-autotag').setup({
             opts = {
               -- Defaults
               enable_close = true, -- Auto close tags
@@ -126,7 +126,6 @@ in
               }
             }
           })
-                        })
         '';
       }
       nvim-surround
@@ -180,7 +179,9 @@ in
                   kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
               },
               definition = {
-                  edit = '<CR>',
+                  keys = {
+                      edit = '<CR>',
+                  },
               },
           })
         '';
@@ -191,6 +192,7 @@ in
         type = "lua";
         config = builtins.readFile (./luafiles/lsp-config.lua);
       }
+      none-ls-extras-nvim
       {
         plugin = none-ls-nvim;
         type = "lua";
