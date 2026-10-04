@@ -142,7 +142,6 @@
     (pkgs.xivlauncher.overrideAttrs (old: {
       runtimeDeps = (old.runtimeDeps or [ ]) ++ [ pkgs.SDL2 ];
     }))
-    steam-run
   ];
 
   # Allow unfree packages
