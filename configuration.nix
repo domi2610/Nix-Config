@@ -134,6 +134,7 @@
       "input"
     ];
     packages = with pkgs; [
+
     ];
   };
 
@@ -141,8 +142,6 @@
     (pkgs.xivlauncher.overrideAttrs (old: {
       runtimeDeps = (old.runtimeDeps or [ ]) ++ [ pkgs.SDL2 ];
     }))
-  ];
-  environment.systemPackages = with pkgs; [
     steam-run
   ];
 
