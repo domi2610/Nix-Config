@@ -81,7 +81,7 @@
   services.desktopManager.gnome.enable = true;
 
   # flatpaks
-  # services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   # or enable Hyprland
   programs.hyprland.enable = false;
